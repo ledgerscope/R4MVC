@@ -373,7 +373,7 @@ namespace R4Mvc.Tools.Services
 
         public ClassDeclarationSyntax FileResultClass()
             => IActionResultDerivedClass(Constants.FileResultClass, "FileResult",
-                c => c.WithBaseConstructorCall(SimpleLiteral.Null));                           // ctor : base(null)
+                c => c.WithBaseConstructorCall(SimpleLiteral.Space));                           // ctor : base(" ") //This throws an exception if it's null
 
         public ClassDeclarationSyntax RedirectResultClass()
             => IActionResultDerivedClass(Constants.RedirectResultClass, "RedirectResult",
