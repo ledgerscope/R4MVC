@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -71,7 +72,9 @@ namespace R4Mvc.Tools.Services
                 .Where(c => c.DeclaredAccessibility == Accessibility.Public)
                 .Where(SyntaxNodeHelpers.IsNotR4MVCGenerated)
                 .Where(c => !c.IsImplicitlyDeclared)
+                .Where(c => c.MethodKind != MethodKind.StaticConstructor)
                 .Any();
+
             if (!gotCustomConstructors)
                 /* [GeneratedCode, DebuggerNonUserCode]
                  * public ctor() { }
@@ -82,10 +85,26 @@ namespace R4Mvc.Tools.Services
             /* [GeneratedCode, DebuggerNonUserCode]
              * public ctor(Dummy d) {}
              */
-            genControllerClass.WithConstructor(c => c
+
+            Action<ConstructorMethodBuilder> cmb = c => c
                 .WithModifiers(SyntaxKind.ProtectedKeyword)
                 .WithGeneratedNonUserCodeAttributes()
-                .WithParameter("d", Constants.DummyClass));
+                .WithParameter("d", Constants.DummyClass);
+
+            if (!controller.Symbol.BaseType.Constructors.Where(c => c.MethodKind != MethodKind.StaticConstructor).Any(a => a.Parameters.Length == 0))
+            {
+                if (controller.Symbol.BaseType.Constructors.Where(c => c.MethodKind != MethodKind.StaticConstructor).Any(a => a.Parameters.Any(p => p.Type.Name == "Dummy")))
+                {
+                    cmb = c => c
+                    .WithBaseConstructorCall(IdentifierName("d"))
+                    .WithModifiers(SyntaxKind.ProtectedKeyword)
+                    .WithGeneratedNonUserCodeAttributes()
+                    .WithParameter("d", Constants.DummyClass)
+                    ;
+                }
+            }
+
+            genControllerClass.WithConstructor(cmb);
 
             AddRedirectMethods(genControllerClass, supportsPages);
             AddParameterlessMethods(genControllerClass, controller.Symbol, controller.IsSecure);
