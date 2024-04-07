@@ -130,7 +130,7 @@ namespace R4Mvc.Tools.Services
                     .WithModifiers(SyntaxKind.PublicKeyword)
                     .WithGeneratedNonUserCodeAttributes()
                     .ForEach(controllerMethodNames, (c, m) => c
-                        .WithStringField(m, m, SyntaxKind.PublicKeyword, SyntaxKind.ReadOnlyKeyword)))
+                        .WithStringField(m, m.TrimEnd("Async"), SyntaxKind.PublicKeyword, SyntaxKind.ReadOnlyKeyword)))
                 /* [GeneratedCode, DebuggerNonUserCode]
                  * public class ActionNameConstants
                  * {
@@ -141,7 +141,7 @@ namespace R4Mvc.Tools.Services
                     .WithModifiers(SyntaxKind.PublicKeyword)
                     .WithGeneratedNonUserCodeAttributes()
                     .ForEach(controllerMethodNames, (c, m) => c
-                        .WithStringField(m, m, SyntaxKind.PublicKeyword, SyntaxKind.ConstKeyword)));
+                        .WithStringField(m, m.TrimEnd("Async"), SyntaxKind.PublicKeyword, SyntaxKind.ConstKeyword)));
 
                 /* [GeneratedCode, DebuggerNonUserCode]
                  * static readonly ActionParamsClass_LogOn s_params_LogOn = new ActionParamsClass_LogOn();
