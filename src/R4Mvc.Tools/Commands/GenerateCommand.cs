@@ -88,8 +88,7 @@ project-path:
                     }
                     if (foundErrors)
                     {
-                        Console.Error.WriteLine("Found errors during project analysis. Aborting");
-                        return;
+                        Console.Error.WriteLine("Found errors during project analysis. Continuing anyway...");
                     }
                 }
 
