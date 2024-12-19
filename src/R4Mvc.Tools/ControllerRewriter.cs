@@ -44,6 +44,10 @@ namespace R4Mvc.Tools
                     newNode = newNode.WithModifiers(SyntaxKind.PartialKeyword);
                 }
             }
+            else
+            {
+                Console.WriteLine($"Not processing {symbol.ContainingNamespace}.{symbol.Name}");
+            }
 
             return newNode;
         }
