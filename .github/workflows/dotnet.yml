@@ -9,12 +9,16 @@ on:
 jobs:
   build:
 
-    runs-on: windows-latest
+    permissions:
+      contents: read
+      packages: write
+
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Setup .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v4
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
@@ -22,4 +26,9 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Pack
-      run: dotnet pack
+      run: dotnet pack --configuration Release
+    - name: Publish to GitHub Packages
+      if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+      run: |
+        dotnet nuget add source --username ledgerscope --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/ledgerscope/index.json"
+        dotnet nuget push "src/R4Mvc.Tools/bin/Release/R4Mvc.Tools.*.nupkg" --source "github" --api-key ${{ secrets.GITHUB_TOKEN }}

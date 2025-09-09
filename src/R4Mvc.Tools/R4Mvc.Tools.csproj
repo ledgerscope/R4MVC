@@ -5,18 +5,16 @@
     <TargetFramework>net8.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <ContentTargetFolders>tools</ContentTargetFolders>
-    <DevelopmentDependency>True</DevelopmentDependency>
-    <IncludeBuildOutput>False</IncludeBuildOutput>
-    <PackageAsTool>true</PackageAsTool>
+    <PackAsTool>true</PackAsTool>
   </PropertyGroup>
 
-    <PropertyGroup>
-        <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-        <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
-    </PropertyGroup>
+  <PropertyGroup>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+  </PropertyGroup>
 
 
-    <PropertyGroup>
+  <PropertyGroup>
     <PackageId>R4Mvc.Tools</PackageId>
     <Authors>Kevin Kuszyk, Scott Mackay, Artiom Chilaru</Authors>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
