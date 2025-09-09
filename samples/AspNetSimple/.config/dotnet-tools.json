@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "r4mvc.tools": {
+      "version": "1.0.0",
+      "commands": [
+        "r4mvc"
+      ]
+    }
+  }
+}

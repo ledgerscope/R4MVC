@@ -126,6 +126,7 @@ namespace AspNetSimple.Controllers
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public WebApiController Actions => MVC.WebApi;
+
         [GeneratedCode("R4Mvc", "1.0")]
         public readonly string Area = "";
         [GeneratedCode("R4Mvc", "1.0")]
@@ -136,6 +137,7 @@ namespace AspNetSimple.Controllers
         static readonly ActionNamesClass s_ActionNames = new ActionNamesClass();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public ActionNamesClass ActionNames => s_ActionNames;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionNamesClass
         {
@@ -170,6 +172,7 @@ namespace AspNetSimple.Controllers
         static readonly ActionParamsClass_ApiCallWithParams s_ApiCallWithParamsParams = new ActionParamsClass_ApiCallWithParams();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public ActionParamsClass_ApiCallWithParams ApiCallWithParamsParams => s_ApiCallWithParamsParams;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionParamsClass_ApiCallWithParams
         {
@@ -180,6 +183,7 @@ namespace AspNetSimple.Controllers
         static readonly ActionParamsClass_TaskApiCallWithParams s_TaskApiCallWithParamsParams = new ActionParamsClass_TaskApiCallWithParams();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public ActionParamsClass_TaskApiCallWithParams TaskApiCallWithParamsParams => s_TaskApiCallWithParamsParams;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionParamsClass_TaskApiCallWithParams
         {
@@ -190,6 +194,7 @@ namespace AspNetSimple.Controllers
         static readonly ActionParamsClass_ApiCallTypedWithParams s_ApiCallTypedWithParamsParams = new ActionParamsClass_ApiCallTypedWithParams();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public ActionParamsClass_ApiCallTypedWithParams ApiCallTypedWithParamsParams => s_ApiCallTypedWithParamsParams;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionParamsClass_ApiCallTypedWithParams
         {
@@ -200,6 +205,7 @@ namespace AspNetSimple.Controllers
         static readonly ActionParamsClass_ApiCallTypedWithPrefixedParams s_ApiCallTypedWithPrefixedParamsParams = new ActionParamsClass_ApiCallTypedWithPrefixedParams();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public ActionParamsClass_ApiCallTypedWithPrefixedParams ApiCallTypedWithPrefixedParamsParams => s_ApiCallTypedWithPrefixedParamsParams;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionParamsClass_ApiCallTypedWithPrefixedParams
         {
@@ -210,6 +216,7 @@ namespace AspNetSimple.Controllers
         static readonly ActionParamsClass_TaskApiCallTypedWithParams s_TaskApiCallTypedWithParamsParams = new ActionParamsClass_TaskApiCallTypedWithParams();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public ActionParamsClass_TaskApiCallTypedWithParams TaskApiCallTypedWithParamsParams => s_TaskApiCallTypedWithParamsParams;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionParamsClass_TaskApiCallTypedWithParams
         {
@@ -220,6 +227,7 @@ namespace AspNetSimple.Controllers
         static readonly ActionParamsClass_TaskApiCallTypedWithPrefixedParams s_TaskApiCallTypedWithPrefixedParamsParams = new ActionParamsClass_TaskApiCallTypedWithPrefixedParams();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public ActionParamsClass_TaskApiCallTypedWithPrefixedParams TaskApiCallTypedWithPrefixedParamsParams => s_TaskApiCallTypedWithPrefixedParamsParams;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionParamsClass_TaskApiCallTypedWithPrefixedParams
         {
@@ -231,6 +239,7 @@ namespace AspNetSimple.Controllers
         {
             static readonly _ViewNamesClass s_ViewNames = new _ViewNamesClass();
             public _ViewNamesClass ViewNames => s_ViewNames;
+
             public class _ViewNamesClass
             {
             }
@@ -245,7 +254,7 @@ namespace AspNetSimple.Controllers
     [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
     public partial class R4MVC_WebApiController : AspNetSimple.Controllers.WebApiController
     {
-        public R4MVC_WebApiController(): base(Dummy.Instance)
+        public R4MVC_WebApiController() : base(Dummy.Instance)
         {
         }
 

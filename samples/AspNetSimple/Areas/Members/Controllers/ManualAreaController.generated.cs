@@ -84,6 +84,7 @@ namespace AspNetSimple.Areas.Members.Controllers
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public ManualAreaController Actions => MVC.Members.ManualArea;
+
         [GeneratedCode("R4Mvc", "1.0")]
         public readonly string Area = "Members";
         [GeneratedCode("R4Mvc", "1.0")]
@@ -94,6 +95,7 @@ namespace AspNetSimple.Areas.Members.Controllers
         static readonly ActionNamesClass s_ActionNames = new ActionNamesClass();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public ActionNamesClass ActionNames => s_ActionNames;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionNamesClass
         {
@@ -111,6 +113,7 @@ namespace AspNetSimple.Areas.Members.Controllers
         {
             static readonly _ViewNamesClass s_ViewNames = new _ViewNamesClass();
             public _ViewNamesClass ViewNames => s_ViewNames;
+
             public class _ViewNamesClass
             {
             }
@@ -125,7 +128,7 @@ namespace AspNetSimple.Areas.Members.Controllers
     [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
     public partial class R4MVC_ManualAreaController : AspNetSimple.Areas.Members.Controllers.ManualAreaController
     {
-        public R4MVC_ManualAreaController(): base(Dummy.Instance)
+        public R4MVC_ManualAreaController() : base(Dummy.Instance)
         {
         }
 

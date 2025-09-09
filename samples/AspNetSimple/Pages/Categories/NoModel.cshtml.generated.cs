@@ -22,8 +22,15 @@ namespace R4Mvc
     {
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         string IR4ActionResult.Protocol => null;
+
         [GeneratedCode("R4Mvc", "1.0")]
-        RouteValueDictionary m_RouteValueDictionary = new RouteValueDictionary{{"Page", "/Categories/NoModel"}};
+        RouteValueDictionary m_RouteValueDictionary = new RouteValueDictionary
+        {
+            {
+                "Page",
+                "/Categories/NoModel"
+            }
+        };
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         RouteValueDictionary IR4ActionResult.RouteValueDictionary => m_RouteValueDictionary;
     }

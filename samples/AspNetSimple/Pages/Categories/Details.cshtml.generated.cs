@@ -84,10 +84,18 @@ namespace AspNetSimple.Pages.Categories
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         string IR4ActionResult.Protocol => null;
+
         [GeneratedCode("R4Mvc", "1.0")]
-        RouteValueDictionary m_RouteValueDictionary = new RouteValueDictionary{{"Page", "/Categories/Details"}};
+        RouteValueDictionary m_RouteValueDictionary = new RouteValueDictionary
+        {
+            {
+                "Page",
+                "/Categories/Details"
+            }
+        };
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         RouteValueDictionary IR4ActionResult.RouteValueDictionary => m_RouteValueDictionary;
+
         [NonHandler]
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public virtual IActionResult OnGet()
@@ -103,6 +111,7 @@ namespace AspNetSimple.Pages.Categories
         static readonly HandlerNamesClass s_HandlerNames = new HandlerNamesClass();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public HandlerNamesClass HandlerNames => s_HandlerNames;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class HandlerNamesClass
         {
@@ -117,6 +126,7 @@ namespace AspNetSimple.Pages.Categories
         static readonly HandlerParamsClass_OnGet s_OnGetParams = new HandlerParamsClass_OnGet();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public HandlerParamsClass_OnGet OnGetParams => s_OnGetParams;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class HandlerParamsClass_OnGet
         {
@@ -127,7 +137,7 @@ namespace AspNetSimple.Pages.Categories
     [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
     public partial class R4MVC_DetailsModel : AspNetSimple.Pages.Categories.DetailsModel
     {
-        public R4MVC_DetailsModel(): base(Dummy.Instance)
+        public R4MVC_DetailsModel() : base(Dummy.Instance)
         {
         }
     }

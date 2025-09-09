@@ -21,6 +21,7 @@ public static partial class MVC
 {
     static readonly R4Mvc.MembersAreaClass s_Members = new R4Mvc.MembersAreaClass();
     public static R4Mvc.MembersAreaClass Members => s_Members;
+
     public static readonly AspNetSimple.Controllers.HomeController Home = new AspNetSimple.Controllers.R4MVC_HomeController();
     public static readonly AspNetSimple.Controllers.SecureController Secure = new AspNetSimple.Controllers.R4MVC_SecureController();
     public static readonly AspNetSimple.Controllers.TestsController Tests = new AspNetSimple.Controllers.R4MVC_TestsController();
@@ -33,8 +34,10 @@ public static partial class MVCPages
 {
     static readonly R4Mvc.CategoriesPathClass s_Categories = new R4Mvc.CategoriesPathClass();
     public static R4Mvc.CategoriesPathClass Categories => s_Categories;
+
     static readonly R4Mvc.NoDirectChildPagesPathClass s_NoDirectChildPages = new R4Mvc.NoDirectChildPagesPathClass();
     public static R4Mvc.NoDirectChildPagesPathClass NoDirectChildPages => s_NoDirectChildPages;
+
     public static readonly AspNetSimple.Pages.DefaultModel Default = new AspNetSimple.Pages.R4MVC_DefaultModel();
     public static readonly R4Mvc.NoModelModel NoModel = new R4Mvc.NoModelModel();
 }
@@ -58,6 +61,7 @@ namespace R4Mvc
         {
             static readonly _ViewNamesClass s_ViewNames = new _ViewNamesClass();
             public _ViewNamesClass ViewNames => s_ViewNames;
+
             public class _ViewNamesClass
             {
                 public readonly string Error = "Error";
@@ -139,10 +143,10 @@ public static partial class Links
         public const string UrlPath = "~/images";
         public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
         public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
-        public static readonly string banner1_svg = Url("banner1.svg");
+        public static readonly string banner4_svg = Url("banner4.svg");
         public static readonly string banner2_svg = Url("banner2.svg");
         public static readonly string banner3_svg = Url("banner3.svg");
-        public static readonly string banner4_svg = Url("banner4.svg");
+        public static readonly string banner1_svg = Url("banner1.svg");
     }
 
     public static partial class js
@@ -150,8 +154,8 @@ public static partial class Links
         public const string UrlPath = "~/js";
         public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
         public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
-        public static readonly string site_js = Url("site.js");
         public static readonly string site_min_js = Url("site.min.js");
+        public static readonly string site_js = Url("site.js");
     }
 
     public static partial class lib
@@ -174,14 +178,14 @@ public static partial class Links
                     public const string UrlPath = "~/lib/bootstrap/dist/css";
                     public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
                     public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
+                    public static readonly string bootstrap_css = Url("bootstrap.css");
+                    public static readonly string bootstrap_theme_min_css_map = Url("bootstrap-theme.min.css.map");
+                    public static readonly string bootstrap_min_css_map = Url("bootstrap.min.css.map");
+                    public static readonly string bootstrap_css_map = Url("bootstrap.css.map");
                     public static readonly string bootstrap_theme_css = Url("bootstrap-theme.css");
                     public static readonly string bootstrap_theme_css_map = Url("bootstrap-theme.css.map");
-                    public static readonly string bootstrap_theme_min_css = Url("bootstrap-theme.min.css");
-                    public static readonly string bootstrap_theme_min_css_map = Url("bootstrap-theme.min.css.map");
-                    public static readonly string bootstrap_css = Url("bootstrap.css");
-                    public static readonly string bootstrap_css_map = Url("bootstrap.css.map");
                     public static readonly string bootstrap_min_css = Url("bootstrap.min.css");
-                    public static readonly string bootstrap_min_css_map = Url("bootstrap.min.css.map");
+                    public static readonly string bootstrap_theme_min_css = Url("bootstrap-theme.min.css");
                 }
 
                 public static partial class fonts
@@ -189,11 +193,11 @@ public static partial class Links
                     public const string UrlPath = "~/lib/bootstrap/dist/fonts";
                     public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
                     public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
+                    public static readonly string glyphicons_halflings_regular_woff2 = Url("glyphicons-halflings-regular.woff2");
                     public static readonly string glyphicons_halflings_regular_eot = Url("glyphicons-halflings-regular.eot");
                     public static readonly string glyphicons_halflings_regular_svg = Url("glyphicons-halflings-regular.svg");
                     public static readonly string glyphicons_halflings_regular_ttf = Url("glyphicons-halflings-regular.ttf");
                     public static readonly string glyphicons_halflings_regular_woff = Url("glyphicons-halflings-regular.woff");
-                    public static readonly string glyphicons_halflings_regular_woff2 = Url("glyphicons-halflings-regular.woff2");
                 }
 
                 public static partial class js
@@ -201,14 +205,14 @@ public static partial class Links
                     public const string UrlPath = "~/lib/bootstrap/dist/js";
                     public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
                     public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
-                    public static readonly string bootstrap_js = Url("bootstrap.js");
-                    public static readonly string bootstrap_min_js = Url("bootstrap.min.js");
                     public static readonly string npm_js = Url("npm.js");
+                    public static readonly string bootstrap_min_js = Url("bootstrap.min.js");
+                    public static readonly string bootstrap_js = Url("bootstrap.js");
                 }
             }
 
-            public static readonly string _bower_json = Url(".bower.json");
             public static readonly string LICENSE = Url("LICENSE");
+            public static readonly string _bower_json = Url(".bower.json");
         }
 
         public static partial class jquery
@@ -216,44 +220,34 @@ public static partial class Links
             public const string UrlPath = "~/lib/jquery";
             public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
             public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
-            public static partial class dist
-            {
-                public const string UrlPath = "~/lib/jquery/dist";
-                public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
-                public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
-                public static readonly string jquery_js = Url("jquery.js");
-                public static readonly string jquery_min_js = Url("jquery.min.js");
-                public static readonly string jquery_min_map = Url("jquery.min.map");
-            }
-
             public static partial class validation
             {
                 public const string UrlPath = "~/lib/jquery-validation";
                 public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
                 public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
-                public static partial class dist
-                {
-                    public const string UrlPath = "~/lib/jquery-validation/dist";
-                    public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
-                    public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
-                    public static readonly string additional_methods_js = Url("additional-methods.js");
-                    public static readonly string additional_methods_min_js = Url("additional-methods.min.js");
-                    public static readonly string jquery_validate_js = Url("jquery.validate.js");
-                    public static readonly string jquery_validate_min_js = Url("jquery.validate.min.js");
-                }
-
                 public static partial class unobtrusive
                 {
                     public const string UrlPath = "~/lib/jquery-validation-unobtrusive";
                     public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
                     public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
-                    public static readonly string _bower_json = Url(".bower.json");
                     public static readonly string jquery_validate_unobtrusive_js = Url("jquery.validate.unobtrusive.js");
                     public static readonly string jquery_validate_unobtrusive_min_js = Url("jquery.validate.unobtrusive.min.js");
+                    public static readonly string _bower_json = Url(".bower.json");
                 }
 
-                public static readonly string _bower_json = Url(".bower.json");
+                public static partial class dist
+                {
+                    public const string UrlPath = "~/lib/jquery-validation/dist";
+                    public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
+                    public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
+                    public static readonly string additional_methods_min_js = Url("additional-methods.min.js");
+                    public static readonly string jquery_validate_js = Url("jquery.validate.js");
+                    public static readonly string jquery_validate_min_js = Url("jquery.validate.min.js");
+                    public static readonly string additional_methods_js = Url("additional-methods.js");
+                }
+
                 public static readonly string LICENSE_md = Url("LICENSE.md");
+                public static readonly string _bower_json = Url(".bower.json");
             }
 
             public static partial class validation_unobtrusive
@@ -261,9 +255,19 @@ public static partial class Links
                 public const string UrlPath = "~/lib/jquery-validation-unobtrusive";
                 public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
                 public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
-                public static readonly string _bower_json = Url(".bower.json");
                 public static readonly string jquery_validate_unobtrusive_js = Url("jquery.validate.unobtrusive.js");
                 public static readonly string jquery_validate_unobtrusive_min_js = Url("jquery.validate.unobtrusive.min.js");
+                public static readonly string _bower_json = Url(".bower.json");
+            }
+
+            public static partial class dist
+            {
+                public const string UrlPath = "~/lib/jquery/dist";
+                public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
+                public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
+                public static readonly string jquery_min_map = Url("jquery.min.map");
+                public static readonly string jquery_js = Url("jquery.js");
+                public static readonly string jquery_min_js = Url("jquery.min.js");
             }
 
             public static readonly string _bower_json = Url(".bower.json");
@@ -275,29 +279,29 @@ public static partial class Links
             public const string UrlPath = "~/lib/jquery-validation";
             public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
             public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
-            public static partial class dist
-            {
-                public const string UrlPath = "~/lib/jquery-validation/dist";
-                public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
-                public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
-                public static readonly string additional_methods_js = Url("additional-methods.js");
-                public static readonly string additional_methods_min_js = Url("additional-methods.min.js");
-                public static readonly string jquery_validate_js = Url("jquery.validate.js");
-                public static readonly string jquery_validate_min_js = Url("jquery.validate.min.js");
-            }
-
             public static partial class unobtrusive
             {
                 public const string UrlPath = "~/lib/jquery-validation-unobtrusive";
                 public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
                 public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
-                public static readonly string _bower_json = Url(".bower.json");
                 public static readonly string jquery_validate_unobtrusive_js = Url("jquery.validate.unobtrusive.js");
                 public static readonly string jquery_validate_unobtrusive_min_js = Url("jquery.validate.unobtrusive.min.js");
+                public static readonly string _bower_json = Url(".bower.json");
             }
 
-            public static readonly string _bower_json = Url(".bower.json");
+            public static partial class dist
+            {
+                public const string UrlPath = "~/lib/jquery-validation/dist";
+                public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
+                public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
+                public static readonly string additional_methods_min_js = Url("additional-methods.min.js");
+                public static readonly string jquery_validate_js = Url("jquery.validate.js");
+                public static readonly string jquery_validate_min_js = Url("jquery.validate.min.js");
+                public static readonly string additional_methods_js = Url("additional-methods.js");
+            }
+
             public static readonly string LICENSE_md = Url("LICENSE.md");
+            public static readonly string _bower_json = Url(".bower.json");
         }
 
         public static partial class jquery_validation_unobtrusive
@@ -305,9 +309,9 @@ public static partial class Links
             public const string UrlPath = "~/lib/jquery-validation-unobtrusive";
             public static string Url() => R4MvcHelpers.ProcessVirtualPath(UrlPath);
             public static string Url(string fileName) => R4MvcHelpers.ProcessVirtualPath(UrlPath + "/" + fileName);
-            public static readonly string _bower_json = Url(".bower.json");
             public static readonly string jquery_validate_unobtrusive_js = Url("jquery.validate.unobtrusive.js");
             public static readonly string jquery_validate_unobtrusive_min_js = Url("jquery.validate.unobtrusive.min.js");
+            public static readonly string _bower_json = Url(".bower.json");
         }
     }
 
@@ -330,28 +334,22 @@ internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_ActionResult : ActionResul
     }
 
     public string Controller { get; set; }
-
     public string Action { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 
 [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
 internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_JsonResult : JsonResult, IR4MvcActionResult
 {
-    public R4Mvc_Microsoft_AspNetCore_Mvc_JsonResult(string area, string controller, string action, string protocol = null): base(null)
+    public R4Mvc_Microsoft_AspNetCore_Mvc_JsonResult(string area, string controller, string action, string protocol = null) : base(null)
     {
         this.InitMVCT4Result(area, controller, action, protocol);
     }
 
     public string Controller { get; set; }
-
     public string Action { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 
@@ -364,79 +362,64 @@ internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_ContentResult : ContentRes
     }
 
     public string Controller { get; set; }
-
     public string Action { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 
 [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
 internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_FileResult : FileResult, IR4MvcActionResult
 {
-    public R4Mvc_Microsoft_AspNetCore_Mvc_FileResult(string area, string controller, string action, string protocol = null): base(null)
+    public R4Mvc_Microsoft_AspNetCore_Mvc_FileResult(string area, string controller, string action, string protocol = null) : base(" ")
     {
         this.InitMVCT4Result(area, controller, action, protocol);
     }
 
     public string Controller { get; set; }
-
     public string Action { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 
 [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
 internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_RedirectResult : RedirectResult, IR4MvcActionResult
 {
-    public R4Mvc_Microsoft_AspNetCore_Mvc_RedirectResult(string area, string controller, string action, string protocol = null): base(" ")
+    public R4Mvc_Microsoft_AspNetCore_Mvc_RedirectResult(string area, string controller, string action, string protocol = null) : base(" ")
     {
         this.InitMVCT4Result(area, controller, action, protocol);
     }
 
     public string Controller { get; set; }
-
     public string Action { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 
 [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
 internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_RedirectToActionResult : RedirectToActionResult, IR4MvcActionResult
 {
-    public R4Mvc_Microsoft_AspNetCore_Mvc_RedirectToActionResult(string area, string controller, string action, string protocol = null): base(" ", " ", " ")
+    public R4Mvc_Microsoft_AspNetCore_Mvc_RedirectToActionResult(string area, string controller, string action, string protocol = null) : base(" ", " ", " ")
     {
         this.InitMVCT4Result(area, controller, action, protocol);
     }
 
     public string Controller { get; set; }
-
     public string Action { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 
 [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
 internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_RedirectToRouteResult : RedirectToRouteResult, IR4MvcActionResult
 {
-    public R4Mvc_Microsoft_AspNetCore_Mvc_RedirectToRouteResult(string area, string controller, string action, string protocol = null): base(null)
+    public R4Mvc_Microsoft_AspNetCore_Mvc_RedirectToRouteResult(string area, string controller, string action, string protocol = null) : base(null)
     {
         this.InitMVCT4Result(area, controller, action, protocol);
     }
 
     public string Controller { get; set; }
-
     public string Action { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 
@@ -449,28 +432,22 @@ internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_ActionResult : 
     }
 
     public string PageName { get; set; }
-
     public string PageHandler { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 
 [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
 internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_JsonResult : JsonResult, IR4PageActionResult
 {
-    public R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_JsonResult(string pageName, string pageHandler, string protocol = null): base(null)
+    public R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_JsonResult(string pageName, string pageHandler, string protocol = null) : base(null)
     {
         this.InitMVCT4Result(pageName, pageHandler, protocol);
     }
 
     public string PageName { get; set; }
-
     public string PageHandler { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 
@@ -483,79 +460,64 @@ internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_ContentResult :
     }
 
     public string Controller { get; set; }
-
     public string Action { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 
 [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
 internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_FileResult : FileResult, IR4PageActionResult
 {
-    public R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_FileResult(string pageName, string pageHandler, string protocol = null): base(null)
+    public R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_FileResult(string pageName, string pageHandler, string protocol = null) : base(null)
     {
         this.InitMVCT4Result(pageName, pageHandler, protocol);
     }
 
     public string PageName { get; set; }
-
     public string PageHandler { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 
 [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
 internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_RedirectResult : RedirectResult, IR4PageActionResult
 {
-    public R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_RedirectResult(string pageName, string pageHandler, string protocol = null): base(" ")
+    public R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_RedirectResult(string pageName, string pageHandler, string protocol = null) : base(" ")
     {
         this.InitMVCT4Result(pageName, pageHandler, protocol);
     }
 
     public string PageName { get; set; }
-
     public string PageHandler { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 
 [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
 internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_RedirectToActionResult : RedirectToActionResult, IR4PageActionResult
 {
-    public R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_RedirectToActionResult(string pageName, string pageHandler, string protocol = null): base(" ", " ", " ")
+    public R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_RedirectToActionResult(string pageName, string pageHandler, string protocol = null) : base(" ", " ", " ")
     {
         this.InitMVCT4Result(pageName, pageHandler, protocol);
     }
 
     public string PageName { get; set; }
-
     public string PageHandler { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 
 [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
 internal partial class R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_RedirectToRouteResult : RedirectToRouteResult, IR4PageActionResult
 {
-    public R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_RedirectToRouteResult(string pageName, string pageHandler, string protocol = null): base(null)
+    public R4Mvc_Microsoft_AspNetCore_Mvc_RazorPages_RedirectToRouteResult(string pageName, string pageHandler, string protocol = null) : base(null)
     {
         this.InitMVCT4Result(pageName, pageHandler, protocol);
     }
 
     public string PageName { get; set; }
-
     public string PageHandler { get; set; }
-
     public string Protocol { get; set; }
-
     public RouteValueDictionary RouteValueDictionary { get; set; }
 }
 #pragma warning restore 1591, 3008, 3009, 0108

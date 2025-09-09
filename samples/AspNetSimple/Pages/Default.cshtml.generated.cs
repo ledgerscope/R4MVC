@@ -84,10 +84,18 @@ namespace AspNetSimple.Pages
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         string IR4ActionResult.Protocol => null;
+
         [GeneratedCode("R4Mvc", "1.0")]
-        RouteValueDictionary m_RouteValueDictionary = new RouteValueDictionary{{"Page", "/Default"}};
+        RouteValueDictionary m_RouteValueDictionary = new RouteValueDictionary
+        {
+            {
+                "Page",
+                "/Default"
+            }
+        };
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         RouteValueDictionary IR4ActionResult.RouteValueDictionary => m_RouteValueDictionary;
+
         [NonHandler]
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public virtual IActionResult OnPost()
@@ -110,6 +118,7 @@ namespace AspNetSimple.Pages
         static readonly HandlerNamesClass s_HandlerNames = new HandlerNamesClass();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public HandlerNamesClass HandlerNames => s_HandlerNames;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class HandlerNamesClass
         {
@@ -128,6 +137,7 @@ namespace AspNetSimple.Pages
         static readonly HandlerParamsClass_OnPost s_OnPostParams = new HandlerParamsClass_OnPost();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public HandlerParamsClass_OnPost OnPostParams => s_OnPostParams;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class HandlerParamsClass_OnPost
         {
@@ -138,6 +148,7 @@ namespace AspNetSimple.Pages
         static readonly HandlerParamsClass_OnPostTest s_OnPostTestParams = new HandlerParamsClass_OnPostTest();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public HandlerParamsClass_OnPostTest OnPostTestParams => s_OnPostTestParams;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class HandlerParamsClass_OnPostTest
         {
@@ -148,7 +159,7 @@ namespace AspNetSimple.Pages
     [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
     public partial class R4MVC_DefaultModel : AspNetSimple.Pages.DefaultModel
     {
-        public R4MVC_DefaultModel(): base(Dummy.Instance)
+        public R4MVC_DefaultModel() : base(Dummy.Instance)
         {
         }
 

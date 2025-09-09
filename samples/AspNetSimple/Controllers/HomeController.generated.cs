@@ -91,6 +91,7 @@ namespace AspNetSimple.Controllers
 
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public HomeController Actions => MVC.Home;
+
         [GeneratedCode("R4Mvc", "1.0")]
         public readonly string Area = "";
         [GeneratedCode("R4Mvc", "1.0")]
@@ -101,6 +102,7 @@ namespace AspNetSimple.Controllers
         static readonly ActionNamesClass s_ActionNames = new ActionNamesClass();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public ActionNamesClass ActionNames => s_ActionNames;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionNamesClass
         {
@@ -123,6 +125,7 @@ namespace AspNetSimple.Controllers
         static readonly ActionParamsClass_Error s_ErrorParams = new ActionParamsClass_Error();
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public ActionParamsClass_Error ErrorParams => s_ErrorParams;
+
         [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
         public class ActionParamsClass_Error
         {
@@ -134,16 +137,17 @@ namespace AspNetSimple.Controllers
         {
             static readonly _ViewNamesClass s_ViewNames = new _ViewNamesClass();
             public _ViewNamesClass ViewNames => s_ViewNames;
+
             public class _ViewNamesClass
             {
                 public readonly string About = "About";
-                public readonly string Contact = "Contact";
                 public readonly string Index = "Index";
+                public readonly string Contact = "Contact";
             }
 
             public readonly string About = "~/Views/Home/About.cshtml";
-            public readonly string Contact = "~/Views/Home/Contact.cshtml";
             public readonly string Index = "~/Views/Home/Index.cshtml";
+            public readonly string Contact = "~/Views/Home/Contact.cshtml";
         }
 
         [GeneratedCode("R4Mvc", "1.0")]
@@ -155,7 +159,7 @@ namespace AspNetSimple.Controllers
     [GeneratedCode("R4Mvc", "1.0"), DebuggerNonUserCode]
     public partial class R4MVC_HomeController : AspNetSimple.Controllers.HomeController
     {
-        public R4MVC_HomeController(): base(Dummy.Instance)
+        public R4MVC_HomeController() : base(Dummy.Instance)
         {
         }
 
