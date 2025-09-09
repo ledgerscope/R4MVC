@@ -33,11 +33,11 @@ showpath:
                     return Task.CompletedTask;
                 }
 
-                Console.WriteLine("Available Visual Studio / MSBuild intances:");
-                var index = 1;
-                foreach (var instance in instances)
+                Console.WriteLine("Available Visual Studio / MSBuild instances:");
+                for(int n = 0; n < instances.Length; n++)
                 {
-                    Console.WriteLine($"  - {index++}: {instance.Name} - {instance.Version}");
+                    var instance = instances[n];
+                    Console.WriteLine($"  [{n + 1}] {instance.Name}, v{instance.Version}");
                     if (showPath)
                     {
                         Console.WriteLine($"       {instance.MSBuildPath}");
