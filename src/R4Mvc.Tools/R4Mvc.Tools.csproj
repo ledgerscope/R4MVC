@@ -7,6 +7,7 @@
     <ContentTargetFolders>tools</ContentTargetFolders>
     <DevelopmentDependency>True</DevelopmentDependency>
     <IncludeBuildOutput>False</IncludeBuildOutput>
+    <PackageAsTool>true</PackageAsTool>
   </PropertyGroup>
 
     <PropertyGroup>
@@ -42,15 +43,6 @@
     <Content Include="init.ps1" />
     <Content Include="R4MVC.psd1" />
     <Content Include="R4MVC.psm1" />
-    <Content Include="bin\$(Configuration)\$(TargetFramework)\*.dll">
-      <PackagePath>tools</PackagePath>
-    </Content>
-    <Content Include="bin\$(Configuration)\$(TargetFramework)\R4Mvc.Tools.exe">
-      <PackagePath>tools</PackagePath>
-    </Content>
-    <Content Include="bin\$(Configuration)\$(TargetFramework)\R4Mvc.Tools.exe.config">
-      <PackagePath>tools</PackagePath>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>
