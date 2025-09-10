@@ -21,12 +21,14 @@ namespace R4Mvc.Tools
             Console.WriteLine($"  R4Mvc Generator Tool v{GetVersion()}");
             Console.WriteLine();
 
+#if DEBUG
             // args = ["vsinstances"];
 
             // args = [ "generate",
-            //  "-p", @"E:\SteveRepos\Core_DevOps\LedgerscopeSolution\Ledgerscope.Web\Ledgerscope.Web.csproj"
-           //// "-vsi", "2"
-           // ];
+            //   "-p", @"E:\SteveRepos\Core_DevOps\LedgerscopeSolution\Ledgerscope.Web\Ledgerscope.Web.csproj"
+            //// "-vsi", "2"
+            //];
+#endif
 
             var commandLineConfig = BuildCommandLineConfig(ref args);
 

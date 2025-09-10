@@ -194,17 +194,13 @@ project-path:
             {
                 // var instances = MSBuildLocator.QueryVisualStudioInstances().ToArray();
                 var instances = _vsLocatorService.GetInstances();
+
+                Console.WriteLine("Available Visual Studio / MSBuild instances:");
+                string instancesDescription = _vsLocatorService.GetInstancesDescription(instances);
+                Console.WriteLine(instancesDescription);
+
                 if (instances.Length == 0)
                     Console.WriteLine("No Visual Studio instances found. The code generation might fail");
-
-                for (int n = 0; n < instances.Length; n++)
-                {
-                    var myInstance = instances[n];
-                    Console.WriteLine($"Instance {n + 1}:");
-                    Console.WriteLine($"    Name: {myInstance.Name}");
-                    Console.WriteLine($"    Version: {myInstance.Version}");
-                    Console.WriteLine($"    MSBuild Path: {myInstance.MSBuildPath}");
-                }
 
                 var vsInstanceIndex = configuration.GetValue<int?>("vsinstance") ?? 0;
                 if (vsInstanceIndex < 0 || vsInstanceIndex > instances.Length)
@@ -216,25 +212,29 @@ project-path:
                 VisualStudioInstance instance;
                 if (vsInstanceIndex > 0)
                 {
-                    Console.WriteLine($"Using instance {vsInstanceIndex}");
-
-                    // Register the selected vs instance. This will cause MSBuildWorkspace to use the MSBuild installed in that instance.
-                    // Note: This has to be registered *before* creating MSBuildWorkspace. Otherwise, the MEF composition used by MSBuildWorkspace will fail to compose.
+                    // User has requested a specific instance.
+                    Console.WriteLine($"Using instance #{vsInstanceIndex} (vsinstance requested).");
                     instance = instances[vsInstanceIndex - 1];
-                    MSBuildLocator.RegisterInstance(instance);
                 }
                 else
                 {
                     //Console.WriteLine("Using the default MSBuild instance");
-                    //// Use the default vs instance and it's MSBuild
+                    //// Use the default vs instance and its MSBuild:
                     //instance = MSBuildLocator.RegisterDefaults();
 
+                    // No specific instance requested, so we'll use the highest version one.
                     instance = instances
                         .OrderByDescending(i => i.Version)
                         .First();
-                    MSBuildLocator.RegisterInstance(instance);
+
+                    int instanceIndex = Array.IndexOf(instances, instance);
+                    Console.WriteLine($"Using instance #{instanceIndex + 1} (highest version).");
                 }
 
+                // Register the selected vs instance. This will cause MSBuildWorkspace to use the MSBuild installed in that instance.
+                // Note: This has to be registered *before* creating MSBuildWorkspace. Otherwise, the MEF composition used by MSBuildWorkspace will fail to compose.
+
+                MSBuildLocator.RegisterInstance(instance);
                 return instance;
             }
 

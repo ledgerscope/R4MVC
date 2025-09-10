@@ -5,6 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using Microsoft.Build.Locator;
 
 namespace R4Mvc.Tools.Services
@@ -12,6 +13,7 @@ namespace R4Mvc.Tools.Services
     public interface IVsLocatorService
     {
         VisualStudioInstance[] GetInstances();
+        string GetInstancesDescription(IReadOnlyList<VisualStudioInstance> instances);
     }
 
     public class VsLocatorService : IVsLocatorService
@@ -25,8 +27,8 @@ namespace R4Mvc.Tools.Services
             {
                 if (!instances.Any(i => i.MSBuildPath.Equals(myInstance.MSBuildPath, StringComparison.OrdinalIgnoreCase)))
                 {
-                    // instances.Insert(0, myInstance);
-                    instances.Add(myInstance);
+                    instances.Insert(0, myInstance);
+                    // instances.Add(myInstance);
                 }
             }
 
@@ -130,6 +132,23 @@ namespace R4Mvc.Tools.Services
                 }
             }
             return dict;
+        }
+
+        public string GetInstancesDescription(IReadOnlyList<VisualStudioInstance> instances)
+        {
+            if (instances == null || !instances.Any())
+                return "No instances found.";
+
+            var s = new StringBuilder();
+            for (int n = 0; n < instances.Count; n++)
+            {
+                var myInstance = instances[n];
+                s.AppendLine($"Instance {n + 1}:");
+                s.AppendLine($"    Name: {myInstance.Name}");
+                s.AppendLine($"    Version: {myInstance.Version}");
+                s.AppendLine($"    MSBuild Path: {myInstance.MSBuildPath}");
+            }
+            return s.ToString();
         }
     }
 }

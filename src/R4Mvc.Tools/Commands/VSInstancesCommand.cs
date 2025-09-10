@@ -30,7 +30,7 @@ showpath:
 
             public Task Run(string projectPath, IConfiguration configuration, string[] args)
             {
-                var showPath = configuration.GetValue<bool?>("showPath") ?? false;
+                // var showPath = configuration.GetValue<bool?>("showPath") ?? false;
 
                 // var instances = MSBuildLocator.QueryVisualStudioInstances().ToArray();
                 var instances = _vsLocatorService.GetInstances();
@@ -41,16 +41,9 @@ showpath:
                 }
 
                 Console.WriteLine("Available Visual Studio / MSBuild instances:");
-                var index = 1;
-                foreach (var instance in instances)
-                {
-                    Console.WriteLine($"  - {index++}: {instance.Name} - {instance.Version}");
-                    if (showPath)
-                    {
-                        Console.WriteLine($"       {instance.MSBuildPath}");
-                        Console.WriteLine();
-                    }
-                }
+                string instancesDescription = _vsLocatorService.GetInstancesDescription(instances);
+                Console.WriteLine(instancesDescription);
+
                 return Task.CompletedTask;
             }
         }
