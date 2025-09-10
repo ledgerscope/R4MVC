@@ -9,9 +9,9 @@ namespace R4Mvc.Test.Commands
 {
     public class GenerateCommandTests
     {
-        public class DummyVsLocatorService : IVsLocatorService
+        public class DummyVsLocatorService : VsLocatorServiceBase
         {
-            public VisualStudioInstance[] GetInstances() => Array.Empty<VisualStudioInstance>();
+            public override VisualStudioInstance[] GetInstances() => Array.Empty<VisualStudioInstance>();
         }
 
         [Fact]
@@ -25,7 +25,7 @@ namespace R4Mvc.Test.Commands
             var command = new GenerateCommand.Runner(null, null, null, null, null, new Settings(), null, null, new DummyVsLocatorService());
 
             var areaMap = command.GenerateAreaMap(controllers);
-            Assert.Equal(0, areaMap.Count);
+            Assert.Empty(areaMap);
         }
 
         [Fact]

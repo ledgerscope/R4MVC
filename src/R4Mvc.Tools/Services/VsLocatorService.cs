@@ -16,9 +16,9 @@ namespace R4Mvc.Tools.Services
         string GetInstancesDescription(IReadOnlyList<VisualStudioInstance> instances);
     }
 
-    public class VsLocatorService : IVsLocatorService
+    public class VsLocatorService : VsLocatorServiceBase
     {
-        public VisualStudioInstance[] GetInstances()
+        public override VisualStudioInstance[] GetInstances()
         {
             var instances = MSBuildLocator.QueryVisualStudioInstances()
                 .ToList();
@@ -87,7 +87,7 @@ namespace R4Mvc.Tools.Services
             }
 
             // Debug.Print(vswhereOutput);
-            var kvps = GetKeyValuePairs(vswhereOutput);
+            var kvps = getKeyValuePairs(vswhereOutput);
             var discoveryType = DiscoveryType.VisualStudioSetup;
             string name = kvps.TryGetValue("displayName", out var n) ? n : "Unknown";
             string path = kvps.TryGetValue("installationPath", out var p) ? p : "";
@@ -117,7 +117,7 @@ namespace R4Mvc.Tools.Services
             return instance;
         }
 
-        private IReadOnlyDictionary<string, string> GetKeyValuePairs(string input)
+        private IReadOnlyDictionary<string, string> getKeyValuePairs(string input)
         {
             var dict = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
             var lines = input.Split(['\r', '\n'], StringSplitOptions.RemoveEmptyEntries);
@@ -133,6 +133,11 @@ namespace R4Mvc.Tools.Services
             }
             return dict;
         }
+    }
+
+    public abstract class VsLocatorServiceBase : IVsLocatorService
+    {
+        public abstract VisualStudioInstance[] GetInstances();
 
         public string GetInstancesDescription(IReadOnlyList<VisualStudioInstance> instances)
         {
