@@ -21,10 +21,12 @@ namespace R4Mvc.Tools
             Console.WriteLine($"  R4Mvc Generator Tool v{GetVersion()}");
             Console.WriteLine();
 
-           // args = [ "generate",
-           //     "-p", @"E:\SteveRepos\Core_DevOps\LedgerscopeSolution\Ledgerscope.Web\Ledgerscope.Web.csproj"
+            // args = ["vsinstances"];
+
+            // args = [ "generate",
+            //  "-p", @"E:\SteveRepos\Core_DevOps\LedgerscopeSolution\Ledgerscope.Web\Ledgerscope.Web.csproj"
            //// "-vsi", "2"
-           //];
+           // ];
 
             var commandLineConfig = BuildCommandLineConfig(ref args);
 
@@ -178,6 +180,7 @@ namespace R4Mvc.Tools
             services.AddTransient<IPageGeneratorService, PageGeneratorService>();
             services.AddTransient<IFilePersistService, FilePersistService>();
             services.AddTransient<R4MvcGeneratorService>();
+            services.AddTransient<IVsLocatorService, VsLocatorService>();
 
             foreach (var runnerType in CommandResolver.GetCommandRunnerTypes())
                 services.AddTransient(runnerType);

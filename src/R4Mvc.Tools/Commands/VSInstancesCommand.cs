@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.Build.Locator;
 using Microsoft.Extensions.Configuration;
 using R4Mvc.Tools.Commands.Core;
+using R4Mvc.Tools.Services;
 
 namespace R4Mvc.Tools.Commands
 {
@@ -22,18 +21,26 @@ showpath:
 
         public class Runner : ICommandRunner
         {
+            private readonly IVsLocatorService _vsLocatorService;
+
+            public Runner(IVsLocatorService vsLocatorService)
+            {
+                _vsLocatorService = vsLocatorService;
+            }
+
             public Task Run(string projectPath, IConfiguration configuration, string[] args)
             {
                 var showPath = configuration.GetValue<bool?>("showPath") ?? false;
 
-                var instances = MSBuildLocator.QueryVisualStudioInstances().ToArray();
+                // var instances = MSBuildLocator.QueryVisualStudioInstances().ToArray();
+                var instances = _vsLocatorService.GetInstances();
                 if (instances.Length == 0)
                 {
                     Console.WriteLine("No Visual Studio / MSBuild instances found.");
                     return Task.CompletedTask;
                 }
 
-                Console.WriteLine("Available Visual Studio / MSBuild intances:");
+                Console.WriteLine("Available Visual Studio / MSBuild instances:");
                 var index = 1;
                 foreach (var instance in instances)
                 {

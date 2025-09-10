@@ -41,9 +41,10 @@ project-path:
             private readonly Settings _settings;
             private readonly IGeneratedFileTesterService _generatedFileTesterService;
             private readonly IFilePersistService _filePersistService;
+            private readonly IVsLocatorService _vsLocatorService;
             public Runner(IControllerRewriterService controllerRewriter, IPageRewriterService pageRewriter, IEnumerable<IViewLocator> viewLocators,
                 IEnumerable<IPageViewLocator> pageViewLocators, R4MvcGeneratorService generatorService, Settings settings,
-                IGeneratedFileTesterService generatedFileTesterService, IFilePersistService filePersistService)
+                IGeneratedFileTesterService generatedFileTesterService, IFilePersistService filePersistService, IVsLocatorService vsLocatorService)
             {
                 _controllerRewriter = controllerRewriter;
                 _pageRewriter = pageRewriter;
@@ -53,6 +54,7 @@ project-path:
                 _settings = settings;
                 _generatedFileTesterService = generatedFileTesterService;
                 _filePersistService = filePersistService;
+                _vsLocatorService = vsLocatorService;
             }
 
             public async Task Run(string projectPath, IConfiguration configuration, string[] args)
@@ -190,7 +192,8 @@ project-path:
 
             private VisualStudioInstance InitialiseMSBuild(IConfiguration configuration)
             {
-                var instances = MSBuildLocator.QueryVisualStudioInstances().ToArray();
+                // var instances = MSBuildLocator.QueryVisualStudioInstances().ToArray();
+                var instances = _vsLocatorService.GetInstances();
                 if (instances.Length == 0)
                     Console.WriteLine("No Visual Studio instances found. The code generation might fail");
 
@@ -222,10 +225,14 @@ project-path:
                 }
                 else
                 {
-                    Console.WriteLine("Using the default MSBuild instance");
+                    //Console.WriteLine("Using the default MSBuild instance");
+                    //// Use the default vs instance and it's MSBuild
+                    //instance = MSBuildLocator.RegisterDefaults();
 
-                    // Use the default vs instance and it's MSBuild
-                    instance = MSBuildLocator.RegisterDefaults();
+                    instance = instances
+                        .OrderByDescending(i => i.Version)
+                        .First();
+                    MSBuildLocator.RegisterInstance(instance);
                 }
 
                 return instance;
